@@ -25,7 +25,13 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-  let choice = prompt("Please enter your choice: Rock, Paper, or Scissors");
+  let choice;
+
+  while (choice != "rock" && choice != "paper" && choice != "scissors")
+    choice = prompt(
+      "Please enter your choice: Rock, Paper, or Scissors"
+    ).toLowerCase();
+
   return choice;
 }
 
