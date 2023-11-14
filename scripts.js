@@ -37,8 +37,8 @@ function getPlayerChoice() {
 
 function playRound(playerChoice, computerChoice) {
   let result;
-  switch (playerChoice.toLowerCase()) {
-    case "rock":
+  switch (playerChoice) {
+    case "Rock":
       switch (computerChoice) {
         case "Rock":
           result = "tie";
@@ -51,7 +51,7 @@ function playRound(playerChoice, computerChoice) {
           break;
       }
       break;
-    case "paper":
+    case "Paper":
       switch (computerChoice) {
         case "Rock":
           result = "win";
@@ -64,7 +64,7 @@ function playRound(playerChoice, computerChoice) {
           break;
       }
       break;
-    case "scissors":
+    case "Scissors":
       switch (computerChoice) {
         case "Rock":
           result = "lose";
