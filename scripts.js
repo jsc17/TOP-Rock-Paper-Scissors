@@ -31,7 +31,7 @@ function getPlayerChoice() {
     choice = prompt(
       "Please enter your choice: Rock, Paper, or Scissors"
     ).toLowerCase();
-
+  choice = choice.charAt(0).toUpperCase() + choice.substring(1);
   return choice;
 }
 
@@ -41,39 +41,39 @@ function playRound(playerChoice, computerChoice) {
     case "rock":
       switch (computerChoice) {
         case "Rock":
-          result = "It's a tie. Rock vs Rock";
+          result = "tie";
           break;
         case "Paper":
-          result = "You lose! Paper beats Rock";
+          result = "lose";
           break;
         case "Scissors":
-          result = "You win! Rock beats Scissors";
+          result = "win";
           break;
       }
       break;
     case "paper":
       switch (computerChoice) {
         case "Rock":
-          result = "You Win! Paper beats Rock.";
+          result = "win";
           break;
         case "Paper":
-          result = "It's a tie. Paper vs Paper";
+          result = "tie";
           break;
         case "Scissors":
-          result = "You lose! Scissors cut Paper";
+          result = "lose";
           break;
       }
       break;
     case "scissors":
       switch (computerChoice) {
         case "Rock":
-          result = "You lose! Rock beats Scissors";
+          result = "lose";
           break;
         case "Paper":
-          result = "You win! Scissors cut Paper";
+          result = "win";
           break;
         case "Scissors":
-          result = "It's a tie. Scissors vs Scissors";
+          result = "tie";
           break;
       }
       break;
@@ -81,9 +81,30 @@ function playRound(playerChoice, computerChoice) {
   return result;
 }
 
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
 
-console.log(playerChoice);
-console.log(computerChoice);
-console.log(playRound(playerChoice, computerChoice));
+  for (i = 1; i <= 5; i++) {
+    console.log(
+      "Round " + i + ": score is " + playerScore + "-" + computerScore
+    );
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+    console.log("You chose " + playerChoice);
+    console.log("The computer chose " + computerChoice);
+
+    let result = playRound(playerChoice, computerChoice);
+    if (result == "win") {
+      playerScore++;
+      console.log("You won! " + playerChoice + " beats " + computerChoice);
+    } else if (result == "tie") {
+      console.log("It's a tie. " + playerChoice + " vs " + computerChoice);
+    } else if (result == "lose") {
+      computerScore++;
+      console.log("You lost! " + computerChoice + " beats " + playerChoice);
+    }
+  }
+}
+
+game();
