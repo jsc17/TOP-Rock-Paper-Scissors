@@ -1,9 +1,18 @@
 body {
-  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.content {
+  background-color: rgb(212, 212, 212);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 150px;
+  padding-top: 50px;
+  flex: 1;
 }
 
 h1 {
@@ -23,4 +32,16 @@ h1 {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.footer {
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  gap: 50px;
+}
+
+.footer a {
+  margin: 16px;
 }
